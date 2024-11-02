@@ -1,0 +1,65 @@
+@if(!isSettingsOn){
+<div class="container">
+  <message
+    *ngIf="isResetConfirmationOpen"
+    [isOpen]="isResetConfirmationOpen"
+    message="Are you sure you want to reset all Pomodoro sessions?"
+    buttonText="Reset"
+    [isCancellable]="true"
+    (confirm)="handleResetConfirm()"
+    (cancel)="handleResetCancel()">
+  </message>
+  <message
+  *ngIf="isCongratsOpen"
+  [isOpen]="isCongratsOpen"
+  message="Congratulations! You have completed all Pomodoro sessions!"
+  buttonText="Thanks!"
+  [isCancellable]="false"
+  (confirm)="handleCongratsConfirm()">
+  ></message>
+
+  <div class="status">
+    <div [class.unvisible]="!isStarted && !isBreak && !isLongBreak">{{ isLongBreak ? 'LONG BREAK' : (isBreak ? 'BREAK' : 'FOCUS') }}</div>
+  </div>
+  
+  <div class="circle">
+    <svg class="progress-ring" width="220" height="220">
+      <circle class="progress-background" cx="33vw" cy="33vw" r="33vw"
+      [class.break-bg]="isOnBreak"
+      ></circle>
+      <circle class="progress-foreground" cx="33vw" cy="33vw" r="33vw" 
+      [attr.stroke-dasharray]="circumference" 
+      [attr.stroke-dashoffset]="strokeDashoffset"
+      [class.break-fg]="isOnBreak"
+      ></circle>
+    </svg>
+    <div class="time">{{ formatTime(totalSeconds) }}</div>
+  </div>
+
+  <div class="pomodoro-indicator">
+    <div *ngFor="let point of pomodoroPoints; let i = index" [id]="'pomodoro' + (i + 1)" [class.active]="currentPomodoro >= (i + 1)"></div>
+  </div>
+
+  <div class="control-buttons">
+    <button class="control-btn" (click)="pauseTimer()" *ngIf="isStarted && !isPaused"><img
+        src="assets/icons/pause-icon.svg" alt="P"></button>
+
+    <button class="control-btn" (click)="continueTimer()" *ngIf="isPaused && !isCounting"><img src="assets/icons/continue-icon.svg"
+          alt="C">
+    </button>
+    
+    <button class="control-btn" (click)="resetTimer()" *ngIf="isStarted && !isOnBreak" id="resetButton" #resetBtn><img
+        src="assets/icons/stop-icon.svg" alt="S"></button>
+        
+    <button class="control-btn" (click)="resetApp()" *ngIf="resetFlag && currentPomodoro != 0"><img src="assets/icons/reset-app-icon.svg" style="color: white;" alt="RA"></button>
+
+    <button class="control-btn" (click)="navigateToSettings()" *ngIf="!isStarted && !isBreak && !isLongBreak && !isCounting
+    && currentPomodoro === 0"><img
+        src="assets/icons/settings-icon.svg"></button>
+    <button class="control-btn" (click)="skipBreak()" *ngIf="isOnBreak"><img
+      src="assets/icons/skip-icon.svg"></button>
+  </div>
+</div>
+}@else if(isSettingsOn){
+<router-outlet></router-outlet>
+}

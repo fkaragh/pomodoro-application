@@ -1,0 +1,339 @@
+:root {
+  --focus-color: #32db89;
+  --break-color: #33B1C4;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  font-size: 1.5rem;
+  position: relative; 
+
+  span {
+    font-family: "Roboto", sans-serif;
+    display: inline-block;
+    font-weight: 100;
+  }
+
+  .row {
+    display: flex;
+    width: 100%;
+    margin: clamp(10px, 2vh, 20px) 0;
+    justify-content: space-between;
+
+    .right {
+      text-align: right;
+      display: flex;
+      align-items: center;
+    }
+
+    .left {
+      text-align: left;
+    }
+    
+    .toggle-dropdown {
+      background-color: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: #ffffff;
+      cursor: pointer;
+      align-self: flex-end;
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+
+      span {
+        margin-left: 4px;
+        margin-right: 8px;
+      }
+
+      b {
+        align-self: self-end;
+      }
+    }
+  }
+
+  h2 {
+    margin-top: 8vh;
+    margin-bottom: 2vh;
+    font-size: 6vh;
+    font-weight: 100;
+  }
+
+  .settings {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4vh;
+    margin: 4vh 0;
+    
+    .section-1,
+    .section-2 {
+      .row {
+        display: flex;
+        width: 100%;
+        margin: clamp(10px, 2vh, 20px) 0;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  .button {
+    margin-bottom: 5vh;
+    
+    .save-button {
+      width: 100%;
+      height: 100px;
+      background-color: #414141;
+      border: thin solid #646464;
+      text.container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 100vh;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  span {
+    font-family: "Roboto", sans-serif;
+    display: inline-block;
+    font-weight: 100;
+  }
+
+  .row {
+    display: flex;
+    width: 100%;
+    margin: clamp(10px, 2vh, 20px) 0;
+    justify-content: space-between;
+
+    .right {
+      text-align: right;
+      display: flex;
+      align-items: center;
+    }
+
+    .left {
+      text-align: left;
+    }
+    
+    .toggle-dropdown {
+      background-color: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: #ffffff;
+      cursor: pointer;
+      align-self: flex-end;
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+
+      span {
+        margin-left: 4px;
+        margin-right: 8px;
+      }
+
+      b {
+        align-self: self-end;
+      }
+    }
+  }
+
+  .settings {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4vh;
+    margin: 4vh 0;
+    
+    .section-1,
+    .section-2 {
+      .row {
+        display: flex;
+        width: 100%;
+        margin: clamp(10px, 2vh, 20px) 0;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  .button {
+    margin-bottom: 5vh;
+    
+  .save-button {
+    width: 100%;
+    height: 100px;
+    background-color: #414141;
+    border: thin solid #646464;
+    text-transform: uppercase;
+    font-weight: 100;
+    color: rgba($color: #ffffff, $alpha: 0.75);
+    border-radius: 10px;
+    box-shadow: 0px 9px 10px 0px rgba($color: #000000, $alpha: 0.1);
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+
+  }
+}
+//Slider
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2FA27E;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2FA27E;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+//POP UP
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  background: #414141;
+  padding: 20px;
+  display: flex;  /* Dikeyde hizalama */
+  align-items: center;     /* Ortaya hizalama */
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.time-display {
+  text-align: center;  /* Alt boşluk */
+  margin: 0 30px 0 30px;
+  
+  span {
+    font-size: 4rem;
+    color: #ffffff;
+    display: block;         /* Yazıyı görünür yap */
+  }
+
+  small {
+    font-size: 1.5rem;
+    color: #ffffff;           /* Yazıyı görünür yap */
+  }
+}
+
+.minus, .plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #646464;
+  color: white;
+  border: solid thin #989898;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 60px;
+}
+
+.confirm-button {
+  background: #414141;
+  color: white;
+  border: thin solid #646464;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 40px;         /* Butonun yukarıda olmasını sağlamak için boşluk */
+  display: block;
+  width: 40%;              /* Butonun tam genişlikte görünmesini sağlamak */
+  text-align: center;
+}
+
+.color-indicator {
+  width: 50px;
+  height: 28px;
+  border-radius: 50px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+  .color-left {
+    width: 50%;
+    height: 100%;
+    background-color: #32db89;
+  }
+
+  .color-right {
+    width: 50%;
+    height: 100%;
+    background-color: #33B1C4;
+  }
+  
+}

@@ -1,0 +1,43 @@
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    background: #333333;
+    color: #ffffff;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    font-weight: 100;
+    src: url('/assets/fonts/Roboto-Thin.ttf') format('truetype'); // Doğru yol ve formatı kullandığınızdan emin olun
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    font-weight: 300;
+    src: url('/assets/fonts/Roboto-Light.ttf') format('truetype'); // Doğru yol ve formatı kullandığınızdan emin olun
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: url('/assets/fonts/Roboto-Regular.ttf') format('truetype'); // Doğru yol ve formatı kullandığınızdan emin olun
+  }
+
+  
+  @font-face {
+    font-family: 'Roboto';
+    font-weight: 600;
+    src: url('/assets/fonts/Roboto-Bold.ttf') format('truetype'); // Doğru yol ve formatı kullandığınızdan emin olun
+  }

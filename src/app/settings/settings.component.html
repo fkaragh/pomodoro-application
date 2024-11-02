@@ -1,0 +1,95 @@
+<div class="container">
+  <h2>Settings</h2>
+  <div class="settings">
+    <div class="section section-1">
+      <div class="row">
+        <span class="left">Focus Session</span>
+        <button class="toggle-dropdown" (click)="openPopup('focusTime')">
+          <b>{{ timeSettings.focusTime }}</b> 
+          <span>min</span>
+          <img src="assets/icons/dropdown-icon.svg">
+        </button>
+      </div>
+      <div class="row">
+        <span class="left">Short Break</span>
+        <button class="toggle-dropdown" (click)="openPopup('shortBreakTime')">
+          <b>{{ timeSettings.shortBreakTime }}</b> 
+          <span>min</span> 
+          <img src="assets/icons/dropdown-icon.svg">
+        </button>
+      </div>
+
+      <div class="row">
+        <span class="left">Long Break</span>
+        <button class="toggle-dropdown" (click)="openPopup('longBreakTime')">
+          <b>{{ timeSettings.longBreakTime }}</b> 
+          <span>min</span>
+          <img src="assets/icons/dropdown-icon.svg">
+        </button>
+      </div>
+
+      <div class="row">
+        <span class="left">Long Break After</span>
+        <button class="toggle-dropdown" (click)="openPopup('longBreakAfter')">
+          <b>{{ timeSettings.longBreakAfter }}</b>
+          <span>pomo</span>
+          <img src="assets/icons/dropdown-icon.svg">
+        </button>
+      </div>
+      
+    </div>
+    <div class="section">
+      <div class="row">
+        <span class="left">Auto Start Focus</span>
+        <label class="switch">
+          <input type="checkbox" (change)="updateCheckbox('isAutoFocusOn', $event)">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="row">
+        <span class="left">Auto Start Break</span>
+        <label class="switch">
+          <input type="checkbox" (change)="updateCheckbox('isAutoBreakOn', $event)">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="row">
+        <span class="left">Alarm Sound</span>
+        <label class="switch">
+          <input type="checkbox" (change)="updateCheckbox('isAlarmSoundOn', $event)">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="row">
+        <span class="left">Application Color</span>
+        <div (click)="handleColorPopup()" class="right">
+          <div class="color-indicator">
+            <div class="color-left"></div>
+            <div class="color-right"></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button">
+    <button class="save-button" (click)="saveSettings()">Save Settings</button>
+  </div>
+
+  <!-- POP-UP -->
+  <div class="popup" *ngIf="isPopupOpen">
+    <div class="popup-content">
+      <button class="minus" (click)="decrement()">-</button>
+      <div class="time-display">
+        <span>{{ selectedTime }}</span>
+        <small *ngIf="selectedKey !='longBreakAfter'; else elseSess">min</small>
+        <ng-template #elseSess>
+          <small>sess</small>
+        </ng-template>
+        
+      </div>
+      <button class="plus" (click)="increment()">+</button>
+    </div>
+    <button class="confirm-button" (click)="confirmSelection()">✔</button>
+  </div>
+</div>
